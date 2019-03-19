@@ -1,0 +1,89 @@
+//
+//  PhotoObject.swift
+//  VK
+//
+//  Created by Владимир on 21/04/2019.
+//  Copyright © 2019 Mediasoft. All rights reserved.
+//
+import SwiftyJSON
+import RealmSwift
+
+class Photo: Object {
+    @objc dynamic var count: Int = 0
+    var photos: [JSON] =  []
+    
+    convenience init(json: JSON) {
+        self.init()
+        if let count = json["count"].int {
+            self.count = count
+        }
+        if let items = json["items"].array {
+            self.photos = items
+        }
+    }
+}
+
+class PhotoObject: Object {
+    @objc dynamic var id: Int = 0
+    @objc dynamic var photo_75: String = ""
+    @objc dynamic var photo_130: String = ""
+    @objc dynamic var photo_604: String = ""
+    @objc dynamic var photo_807: String = ""
+    @objc dynamic var photo_1280: String = ""
+    @objc dynamic var width: Int = 0
+    @objc dynamic var height: Int = 0
+    @objc dynamic var date: Int = 0
+    
+    convenience init(json: JSON) {
+        self.init()
+        if let id = json["id"].int {
+            self.id = id
+        }
+        if let photo_75 = json["photo_75"].string {
+            self.photo_75 = photo_75
+        }
+        if let photo_130 = json["photo_130"].string {
+            self.photo_130 = photo_130
+        }
+        if let photo_604 = json["photo_604"].string {
+            self.photo_604 = photo_604
+        }
+        if let photo_807 = json["photo_807"].string {
+            self.photo_807 = photo_807
+        }
+        if let photo_1280 = json["photo_1280"].string {
+            self.photo_1280 = photo_1280
+        }
+        if let width = json["width"].int {
+            self.width = width
+        }
+        if let height = json["height"].int {
+            self.height = height
+        }
+        if let date = json["date"].int {
+            self.date = date
+        }
+    }
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}
+
+//{
+//    "response": {
+//        "count": 16,
+//        "items": [
+//        {
+//        "id": 456241789,
+//        "album_id": -7,
+//        "owner_id": 163601900,
+//        "photo_75": "https://pp.userapi.com/c845323/v845323710/73416/O76ztoPVzII.jpg",
+//        "photo_130": "https://pp.userapi.com/c845323/v845323710/73417/vPDmuSl2JjY.jpg",
+//        "photo_604": "https://pp.userapi.com/c845323/v845323710/73418/GwVodhwuk6I.jpg",
+//        "photo_807": "https://pp.userapi.com/c845323/v845323710/73419/VKcie6ff8U8.jpg",
+//        "photo_1280": "https://pp.userapi.com/c845323/v845323710/7341a/3aH7KK_1NBU.jpg",
+//        "width": 959,
+//        "height": 539,
+//        "text": "",
+//        "date": 1528231881
+//        },
