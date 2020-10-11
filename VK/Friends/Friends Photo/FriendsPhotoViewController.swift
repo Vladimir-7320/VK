@@ -10,34 +10,32 @@ import UIKit
 
 class FriendsPhotoViewController: UIViewController {
     
+    // MARK: - IBOutlet
     @IBOutlet weak var friendsPhotoCollectionView: UICollectionView!
+    
+    // MARK: - Vars
     private let vkService = VKService()
     private var arrayvk = [FriendsPhotoObject]()
-    
-    
     // Segue information
     var friendsId = 0
 
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         vkService.loadFriendsPhoto(friendsId: friendsId) { (friendsPhoto) in
             self.arrayvk = friendsPhoto
             try? RealmProvider.save(items: friendsPhoto)
-            
-            // Обновление данных в таблице
-            self.friendsPhotoCollectionView.reloadData()
+            self.reloadData()
         }
     }
     
-    
-    
+    // MARK: - Functions
+    private func reloadData() {
+        self.friendsPhotoCollectionView.reloadData()
+    }
 }
 
 extension FriendsPhotoViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrayvk.count
     }

@@ -68,22 +68,3 @@ class PhotoObject: Object {
         return "id"
     }
 }
-
-//{
-//    "response": {
-//        "count": 16,
-//        "items": [
-//        {
-//        "id": 456241789,
-//        "album_id": -7,
-//        "owner_id": 163601900,
-//        "photo_75": "https://pp.userapi.com/c845323/v845323710/73416/O76ztoPVzII.jpg",
-//        "photo_130": "https://pp.userapi.com/c845323/v845323710/73417/vPDmuSl2JjY.jpg",
-//        "photo_604": "https://pp.userapi.com/c845323/v845323710/73418/GwVodhwuk6I.jpg",
-//        "photo_807": "https://pp.userapi.com/c845323/v845323710/73419/VKcie6ff8U8.jpg",
-//        "photo_1280": "https://pp.userapi.com/c845323/v845323710/7341a/3aH7KK_1NBU.jpg",
-//        "width": 959,
-//        "height": 539,
-//        "text": "",
-//        "date": 1528231881
-//        },

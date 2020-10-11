@@ -12,7 +12,7 @@
 		E721B46024CDD68C0098BED0 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E721B45E24CDD68C0098BED0 /* NewsCell.swift */; };
 		E721B46124CDD68C0098BED0 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E721B45F24CDD68C0098BED0 /* NewsCell.xib */; };
 		E73677852265E33F0067A8D5 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E73677842265E33F0067A8D5 /* WebKit.framework */; };
-		E736778922662E250067A8D5 /* Singltone.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736778822662E250067A8D5 /* Singltone.swift */; };
+		E736778922662E250067A8D5 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736778822662E250067A8D5 /* Singleton.swift */; };
 		E76D9821244A8B4900B4743E /* FriendsPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76D9820244A8B4900B4743E /* FriendsPhotoCollectionViewCell.swift */; };
 		E76D9825244A8B9C00B4743E /* FriendsPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76D9824244A8B9C00B4743E /* FriendsPhotoViewController.swift */; };
 		E77653A5244E35340094ACEF /* FriendsPhotoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77653A4244E35340094ACEF /* FriendsPhotoObject.swift */; };
@@ -31,7 +31,6 @@
 		E7B1D240225572DF009F7BD6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B1D23F225572DF009F7BD6 /* ProfileViewController.swift */; };
 		E7B1D242225572F3009F7BD6 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B1D241225572F3009F7BD6 /* NewsViewController.swift */; };
 		E7B1D24422557307009F7BD6 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B1D24322557307009F7BD6 /* FriendsViewController.swift */; };
-		E7B1D2462255731B009F7BD6 /* LikedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B1D2452255731B009F7BD6 /* LikedViewController.swift */; };
 		E7B1D24822557328009F7BD6 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B1D24722557328009F7BD6 /* PhotoViewController.swift */; };
 		E7B68D48225210F2004CD107 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B68D47225210F2004CD107 /* HomeViewController.swift */; };
 		E7B68D4D225361C8004CD107 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B68D4C225361C8004CD107 /* HomeTableViewCell.swift */; };
@@ -52,7 +51,7 @@
 		E721B45E24CDD68C0098BED0 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		E721B45F24CDD68C0098BED0 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		E73677842265E33F0067A8D5 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		E736778822662E250067A8D5 /* Singltone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singltone.swift; sourceTree = "<group>"; };
+		E736778822662E250067A8D5 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		E76D9820244A8B4900B4743E /* FriendsPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		E76D9824244A8B9C00B4743E /* FriendsPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotoViewController.swift; sourceTree = "<group>"; };
 		E77653A4244E35340094ACEF /* FriendsPhotoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotoObject.swift; sourceTree = "<group>"; };
@@ -71,7 +70,6 @@
 		E7B1D23F225572DF009F7BD6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E7B1D241225572F3009F7BD6 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		E7B1D24322557307009F7BD6 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
-		E7B1D2452255731B009F7BD6 /* LikedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedViewController.swift; sourceTree = "<group>"; };
 		E7B1D24722557328009F7BD6 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		E7B68D47225210F2004CD107 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E7B68D4C225361C8004CD107 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -172,14 +170,6 @@
 			path = Friends;
 			sourceTree = "<group>";
 		};
-		E7B1D23C22556520009F7BD6 /* Liked */ = {
-			isa = PBXGroup;
-			children = (
-				E7B1D2452255731B009F7BD6 /* LikedViewController.swift */,
-			);
-			path = Liked;
-			sourceTree = "<group>";
-		};
 		E7B1D23D22556545009F7BD6 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,7 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				E7E758B22264F65300D5FDB8 /* Networking */,
-				E736778822662E250067A8D5 /* Singltone.swift */,
+				E736778822662E250067A8D5 /* Singleton.swift */,
 				E7BCEE98226BDCB800DE0194 /* JSON Object */,
 				E779CEB02249239B000F35BA /* Autorization */,
 				E7B68D4622521086004CD107 /* Home */,
@@ -252,7 +242,6 @@
 				E7B1D23B225564F2009F7BD6 /* Friends */,
 				E79EDD502269E8B4006763F3 /* Groups */,
 				E7B1D23D22556545009F7BD6 /* Photo */,
-				E7B1D23C22556520009F7BD6 /* Liked */,
 				E7B1D23A225564D7009F7BD6 /* News */,
 				E7C5EBC22240F8220030BEBF /* Main.storyboard */,
 				E7C5EBC52240F8220030BEBF /* Assets.xcassets */,
@@ -397,12 +386,11 @@
 				E7C5EBEC224101BC0030BEBF /* LoginViewController.swift in Sources */,
 				E7CEBBB624A4E9EC00122617 /* NewsObject.swift in Sources */,
 				E77C0C712280713E00B2C322 /* PostsObject.swift in Sources */,
-				E7B1D2462255731B009F7BD6 /* LikedViewController.swift in Sources */,
 				E79EDD542269EB56006763F3 /* GroupsCell.swift in Sources */,
 				E79EDD4D2269D063006763F3 /* FriendsCell.swift in Sources */,
 				E79EDD522269E963006763F3 /* GroupsViewController.swift in Sources */,
 				E780E3DD2254D0310069FFED /* ProfileTableViewCell.swift in Sources */,
-				E736778922662E250067A8D5 /* Singltone.swift in Sources */,
+				E736778922662E250067A8D5 /* Singleton.swift in Sources */,
 				E7B1D240225572DF009F7BD6 /* ProfileViewController.swift in Sources */,
 				E7A8D823226BF87600B9C24B /* PhotoObject.swift in Sources */,
 				E76D9821244A8B4900B4743E /* FriendsPhotoCollectionViewCell.swift in Sources */,
@@ -494,7 +482,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -549,7 +537,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

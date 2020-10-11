@@ -9,6 +9,20 @@
 import UIKit
 
 class ProfileTableViewCell: UITableViewCell {
-    @IBOutlet weak var avatarPhotoImage: UIImageView!
-    @IBOutlet var nameTextLabel: UILabel!
+    @IBOutlet weak private var avatarPhotoImage: UIImageView!
+    @IBOutlet private var nameTextLabel: UILabel!
+    
+    private let colorClickedCell = UIColor.init(red: 55/255, green: 55/255, blue: 57/255, alpha: 1)
+    
+    func configure() {
+        let profile = Singleton.instance.profileGU
+        nameTextLabel.text = profile.first_name + " " + profile.last_name
+    
+        avatarPhotoImage.kf.setImage(with: URL(string: profile.photo_50))
+        avatarPhotoImage.layer.cornerRadius = avatarPhotoImage.frame.height/2
+        
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = colorClickedCell
+        self.selectedBackgroundView = bgColorView
+    }
 }

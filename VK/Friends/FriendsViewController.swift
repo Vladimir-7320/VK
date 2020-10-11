@@ -12,12 +12,26 @@ import RealmSwift
 
 class FriendsViewController: UIViewController {
     
+    // MARK: - IBOutlet
     @IBOutlet var friendsTableView: UITableView!
     
+    // MARK: - Vars
     private let vkService = VKService()
-    var friends: Results<FriendObject>?
-    var tokenNotificationFriends: NotificationToken?
+    private var friends: Results<FriendObject>?
+    private var tokenNotificationFriends: NotificationToken?
     
+    // MARK: - Life Cycles
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        pairTableAndRealm()
+        vkService.loadFriends { (friends) in
+            try? RealmProvider.save(items: friends)
+        }
+        // Hiding cells after the table
+        friendsTableView.tableFooterView = UIView()
+    }
+    
+    // MARK: - Functions
     // Realm notifications
     private func pairTableAndRealm() {
         guard let realm = try? Realm() else { return }
@@ -41,46 +55,18 @@ class FriendsViewController: UIViewController {
             }
         }
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        pairTableAndRealm()
-        vkService.loadFriends { (friends) in
-            try? RealmProvider.save(items: friends)
-        }
-        // Скрытие ненужных ячеек после таблицы
-        friendsTableView.tableFooterView = UIView()
-    }
 }
 
 extension FriendsViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friends?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as! FriendsCell
         guard let friend = friends?[indexPath.row] else { return cell }
-            
-        // Кастомизация ячейки
-        // Смена цвета при нажатии на ячейку
-        let bgColorView = UIView()
-        bgColorView.backgroundColor = UIColor.init(red: 55/255, green: 55/255, blue: 57/255, alpha: 1)
-        cell.selectedBackgroundView = bgColorView
-        // Установка изображения
-        cell.friendsImageView.kf.setImage(with: URL(string: friend.photo_50))
-        // Установка имени друга
-        cell.friendsTextLabel.text = friend.first_name + " " + friend.last_name
-        // Делаем аватарку круглым
-        cell.friendsImageView.layer.cornerRadius = cell.friendsImageView.frame.height/2
-            
+        cell.configure(friend: friend)
         return cell
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

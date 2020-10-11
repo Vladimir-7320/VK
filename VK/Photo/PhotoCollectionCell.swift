@@ -10,4 +10,8 @@ import UIKit
 
 class PhotoCollectionCell: UICollectionViewCell {
     @IBOutlet var photoImageView: UIImageView!
+    
+    func configure(photo: PhotoObject) {
+        photoImageView.kf.setImage(with: URL(string: photo.photo_604))
+    }
 }

@@ -30,15 +30,25 @@ class NewsCell: UITableViewCell {
     @IBOutlet private weak var viewsImageView: UIImageView!
     @IBOutlet private weak var countViewsLable: UILabel!
     
-    func configure (with news: NewsObjectItems) {
+    func configure (with news: NewsObjectItems, newsItems: NewsObjectItems, uVkNews : NewsObject) {
+        let sourceID = newsItems.source_id
+        let newsGroups = uVkNews.groups.filter { $0.id == -sourceID }.first
+        let newsProfiles = uVkNews.profiles.filter { $0.id == sourceID }.first
+        newsPhotoImageView.kf.setImage(with: URL(string: newsItems.photoUrlFirst))
+        
+        if newsGroups == nil {
+            userNameLable.text = newsProfiles!.last_name + " " + newsProfiles!.first_name
+            userPhotoImageView.kf.setImage(with: URL(string: newsProfiles!.photo_50))
+        } else {
+            userNameLable.text = newsGroups!.name
+            userPhotoImageView.kf.setImage(with: URL(string: newsGroups!.photo_50))
+        }
         
         newsTextLable.text = news.text
         countLikesLable.text = "\(news.likesCount)"
         countCommentsLable.text = "\(news.commentsCount)"
         countRepostLable.text = "\(news.repostsCount)"
         countViewsLable.text = "\(news.viewsCount)"
-        
-        // Делаем изображение круглым
         userPhotoImageView.layer.cornerRadius = userPhotoImageView.frame.height/2
     }
 }

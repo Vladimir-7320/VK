@@ -11,12 +11,24 @@ import RealmSwift
 
 class PhotoViewController: UIViewController {
     
+    // MARK: - IBOutlet
     @IBOutlet var photoCollectionView: UICollectionView!
     
+    // MARK: - Vars
     private let vkService = VKService()
-    var photos: Results<PhotoObject>?
-    var tokenNotificationPhoto: NotificationToken?
+    private var photos: Results<PhotoObject>?
+    private var tokenNotificationPhoto: NotificationToken?
     
+    // MARK: - Life Cycles
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        pairTableAndRealm()
+        vkService.loadPhotos { (photos) in
+            try? RealmProvider.save(items: photos)
+        }
+    }
+    
+    // MARK: - Functions
     // Realm notifications
     private func pairTableAndRealm() {
         guard let realm = try? Realm() else { return }
@@ -37,21 +49,9 @@ class PhotoViewController: UIViewController {
             }
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        pairTableAndRealm()
-        vkService.loadPhotos { (photos) in
-            try? RealmProvider.save(items: photos)
-        }
-    }
 }
 
 extension PhotoViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos?.count ?? 0
     }
@@ -59,10 +59,7 @@ extension PhotoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCollectionCell", for: indexPath) as! PhotoCollectionCell
         guard let photo = photos?[indexPath.row] else { return cell }
-        
-        // Установка изображения
-        cell.photoImageView.kf.setImage(with: URL(string: photo.photo_604))
-        
+        cell.configure(photo: photo)
         return cell
     }
 }

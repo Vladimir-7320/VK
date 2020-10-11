@@ -18,19 +18,26 @@ struct Response: Decodable {
 
 class VKService: UIViewController {
     
+    // MARK: - IBOutlet
     @IBOutlet weak var webView: WKWebView! {
         didSet {
             webView.navigationDelegate = self
         }
     }
     
+    // MARK: - Vars
     let versionRequest = 5.68
     
+    // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        networkRequest()
+    }
+    
+    // MARK: - Functions
+    private func networkRequest() {
         // Передаем значения в Singltone VKSession
-        let session = Singltone.instance
+        let session = Singleton.instance
         session.clientId = "6954809"
 
         var urlComponents = URLComponents()
@@ -47,13 +54,11 @@ class VKService: UIViewController {
         ]
         
         let request = URLRequest(url: urlComponents.url!)
-        
         webView.load(request)
     }
 }
 
 extension VKService: WKNavigationDelegate {
-    
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         
         guard let url = navigationResponse.response.url,
@@ -81,8 +86,8 @@ extension VKService: WKNavigationDelegate {
         
         guard let userId = params["user_id"] else { return }
 
-        // Передаем значения в Singltone VKSession
-        let session = Singltone.instance
+        // Passing values to Singltone VKSession
+        let session = Singleton.instance
         session.token = token
         session.userId = userId
         
@@ -95,8 +100,7 @@ extension VKService: WKNavigationDelegate {
     }
     
   
-  
-    // Получение данных для ленты новостей
+    // MARK: - News feed
     func loadNews(completion: ((NewsObject?, Error?) -> Void)? = nil) {
         let baseUrl = "https://api.vk.com"
         let path = "/method/newsfeed.get"
@@ -104,7 +108,7 @@ extension VKService: WKNavigationDelegate {
         let params: Parameters = [
             "filters" : "post, photo",
             "count" : 30,
-            "access_token" : Singltone.instance.token,
+            "access_token" : Singleton.instance.token,
             "v" : versionRequest
         ]
 
@@ -142,14 +146,14 @@ extension VKService: WKNavigationDelegate {
         }
     }
     
-    // Получение информации о текущем пользователе
+    // MARK: - Сurrent user
     func loadProfile() {
         
         let baseUrl = "https://api.vk.com"
         let path = "/method/users.get"
         
         let params: Parameters = [
-            "access_token" : Singltone.instance.token,
+            "access_token" : Singleton.instance.token,
             "fields" : "sex, bdate, city, country, home_town, photo_50, photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, domain",
             "v" : versionRequest
         ]
@@ -163,7 +167,7 @@ extension VKService: WKNavigationDelegate {
 
                 print("\nТекущий пользователь: \(dataProfile.first_name) \(dataProfile.last_name)")
                 
-                Singltone.instance.profileGU = dataProfile
+                Singleton.instance.profileGU = dataProfile
                 
             } catch {
                 print("error")
@@ -171,13 +175,13 @@ extension VKService: WKNavigationDelegate {
         }
     }
     
-    // Получение информации о записях текущего пользователя
+    // MARK: - Recordings сurrent user
     func loadProfilePost() {
         let baseUrl = "https://api.vk.com"
         let path = "/method/wall.get"
         
         let params: Parameters = [
-            "access_token" : Singltone.instance.token,
+            "access_token" : Singleton.instance.token,
             "count" : "100",
             "v" : versionRequest
         ]
@@ -190,7 +194,7 @@ extension VKService: WKNavigationDelegate {
                 
                 print("\nРаспечатка JSON ответа данных о текущем пользователе\n\(responstData.response)")
                 
-                Singltone.instance.profileGU = dataProfile
+                Singleton.instance.profileGU = dataProfile
                 
             } catch {
                 print("error")
@@ -198,13 +202,13 @@ extension VKService: WKNavigationDelegate {
         }
     }
     
-    // Получения списка друзей текущего пользователя
+    // MARK: - Friend
     func loadFriends(completion: @escaping ([FriendObject]) -> Void) {
         let baseUrl = "https://api.vk.com"
         let path = "/method/friends.get"
 
         let params: Parameters = [
-            "access_token" : Singltone.instance.token,
+            "access_token" : Singleton.instance.token,
             "fields" : "domain, bdate, city, country, photo_50, photo_100, photo_200_orig, online",
             "v" : versionRequest
         ]
@@ -232,20 +236,16 @@ extension VKService: WKNavigationDelegate {
         }
     }
     
-    // Получение фото по id человека
+    // MARK: - Photo by person's id
     func loadFriendsPhoto(friendsId: Int, completion: @escaping ([FriendsPhotoObject]) -> Void) {
         let baseUrl = "https://api.vk.com"
         let path = "/method/photos.getAll"
         
-        //let someFriendsPhoto = FriendsPhotoViewController()
-        
         let params: Parameters = [
-            "access_token" : Singltone.instance.token,
+            "access_token" : Singleton.instance.token,
             "owner_id" : friendsId,
             "v" : versionRequest
         ]
-        
-        //print(friendsId)
         
         AF.request(baseUrl+path, method: .get, parameters: params).responseJSON { responds in
             //print(responds.value as Any)
@@ -270,14 +270,14 @@ extension VKService: WKNavigationDelegate {
         }
     }
     
-    // Получения списка фотографий текущего пользователя
+    // MARK: - Photos сurrent user
     func loadPhotos(completion: @escaping ([PhotoObject]) -> Void) {
 
         let baseUrl = "https://api.vk.com"
         let path = "/method/photos.get"
 
         let params: Parameters = [
-            "access_token" : Singltone.instance.token,
+            "access_token" : Singleton.instance.token,
             "album_id" : "wall",
             "v" : versionRequest
         ]
@@ -304,13 +304,13 @@ extension VKService: WKNavigationDelegate {
         }
     }
 
-    // Получение групп текущего пользователя
+    // MARK: - Groups
     func loadGroup(completion: @escaping ([GroupObject]) -> Void) {
         let baseUrl = "https://api.vk.com"
         let path = "/method/groups.get"
         
         let params: Parameters = [
-            "access_token" : Singltone.instance.token,
+            "access_token" : Singleton.instance.token,
             "extended" : 1,
             "v" : versionRequest
         ]
@@ -336,7 +336,5 @@ extension VKService: WKNavigationDelegate {
             }
         }
     }
-    
-    
     
 }

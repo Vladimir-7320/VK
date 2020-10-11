@@ -78,33 +78,3 @@ class Profile: Object {
         }
     }
 }
-
-//{ Array
-//    "response": [ Dictionary
-//    {  Array
-//    "id": 163601900,
-//    "first_name": "Владимир",
-//    "last_name": "Харитонов",
-//    "sex": 2,
-//    "domain": "vova.kharitonov",
-//    "bdate": "22.4.1998",
-//    "city": {  Array
-//    "id": 149,
-//    "title": "Ульяновск"
-//    },
-//    "country": {  Array
-//    "id": 1,
-//    "title": "Россия"
-//    },
-//    "photo_50": "https://pp.userapi.com/c850728/v850728773/f453d/egHOgD14L8U.jpg?ava=1",
-//    "photo_100": "https://pp.userapi.com/c850728/v850728773/f453c/ZHoTZWrz0hw.jpg?ava=1",
-//    "photo_200": "https://pp.userapi.com/c850728/v850728773/f453b/K-NTTNI3iuE.jpg?ava=1",
-//    "photo_max": "https://pp.userapi.com/c850728/v850728773/f453b/K-NTTNI3iuE.jpg?ava=1",
-//    "photo_200_orig": "https://pp.userapi.com/c849536/v849536475/162ab8/CJuzUP1Bx2M.jpg?ava=1",
-//    "photo_400_orig": "https://pp.userapi.com/c849536/v849536475/162ab7/LYOCdgQz9Us.jpg?ava=1",
-//    "photo_max_orig": "https://pp.userapi.com/c849536/v849536475/162ab7/LYOCdgQz9Us.jpg?ava=1",
-//    "online": 0,
-//    "home_town": "Ульяновск"
-//    }
-//    ]
-//}

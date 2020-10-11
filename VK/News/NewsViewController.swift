@@ -10,10 +10,15 @@ import UIKit
 import Kingfisher
 
 class NewsViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    private let vkService = VKService()
-    var vkNews: NewsObject?
     
+    // MARK: - IBOutlet
+    @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - Vars
+    private let vkService = VKService()
+    private var vkNews: NewsObject?
+    
+    // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
@@ -31,6 +36,7 @@ class NewsViewController: UIViewController {
         )
     }
     
+    // MARK: - Functions
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -39,7 +45,6 @@ class NewsViewController: UIViewController {
             forCellReuseIdentifier: "newsCellID"
         )
     }
-    
 }
 
 extension NewsViewController: UITableViewDataSource {
@@ -53,24 +58,9 @@ extension NewsViewController: UITableViewDataSource {
         guard let uCell = cell, let uVkNews = vkNews else {
             return UITableViewCell()
         }
-       
+        
         let newsItems = uVkNews.items[indexPath.row]
-        let sourceID = newsItems.source_id
-        let newsGroups = uVkNews.groups.filter { $0.id == -sourceID }.first
-        let newsProfiles = uVkNews.profiles.filter { $0.id == sourceID }.first
-        
-        if newsGroups == nil {
-            uCell.userNameLable.text = newsProfiles!.last_name + " " + newsProfiles!.first_name
-            uCell.userPhotoImageView.kf.setImage(with: URL(string: newsProfiles!.photo_50))
-        } else {
-            uCell.userNameLable.text = newsGroups!.name
-            uCell.userPhotoImageView.kf.setImage(with: URL(string: newsGroups!.photo_50))
-        }
-        
-        uCell.newsPhotoImageView.kf.setImage(with: URL(string: newsItems.photoUrlFirst))
-        
-        uCell.configure(with: newsItems)
-        
+        uCell.configure(with: newsItems, newsItems: newsItems, uVkNews: uVkNews)
         return uCell
     }
     

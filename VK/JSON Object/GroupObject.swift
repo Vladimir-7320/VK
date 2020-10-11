@@ -57,37 +57,3 @@ class GroupObject: Object {
         return "id"
     }
 }
-
-//{
-//    response =     {
-//        count = 2;
-//        items =         (
-//            {
-//                id = 43001537;
-//                "is_admin" = 0;
-//                "is_advertiser" = 0;
-//                "is_closed" = 0;
-//                "is_member" = 1;
-//                name = "Apple | iPhone | iPad";
-//                "photo_100" = "https://sun1-22.userapi.com/c848636/v848636355/159050/gY-O38GucsQ.jpg?ava=1";
-//                "photo_200" = "https://sun1-83.userapi.com/c848636/v848636355/15904f/LU5ninJPvNk.jpg?ava=1";
-//                "photo_50" = "https://sun1-83.userapi.com/c848636/v848636355/159051/YXXaWMERYR8.jpg?ava=1";
-//                "screen_name" = "apple.inside";
-//                type = page;
-//        },
-//            {
-//                id = 36516005;
-//                "is_admin" = 0;
-//                "is_advertiser" = 0;
-//                "is_closed" = 0;
-//                "is_member" = 1;
-//                name = "\U0421\U0438\U043d\U0435\U043c\U0430 \U041f\U0430\U0440\U043a & \U0424\U043e\U0440\U043c\U0443\U043b\U0430 \U041a\U0438\U043d\U043e";
-//                "photo_100" = "https://sun1-89.userapi.com/c845416/v845416897/12a9f4/HOkgzwfSsiE.jpg?ava=1";
-//                "photo_200" = "https://sun1-14.userapi.com/c845416/v845416897/12a9f3/KQfHxJiQCGY.jpg?ava=1";
-//                "photo_50" = "https://sun1-89.userapi.com/c845416/v845416897/12a9f5/61j5gyYoXSA.jpg?ava=1";
-//                "screen_name" = kinoteatr;
-//                type = page;
-//        }
-//        );
-//    };
-//}
