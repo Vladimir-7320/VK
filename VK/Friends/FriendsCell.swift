@@ -9,11 +9,14 @@
 import UIKit
 
 class FriendsCell: UITableViewCell {
+    // MARK: - IBOutlet
     @IBOutlet var friendsImageView: UIImageView!
     @IBOutlet var friendsTextLabel: UILabel!
     
+    // MARK: - Vars
     private let colorClickedCell = UIColor.init(red: 55/255, green: 55/255, blue: 57/255, alpha: 1)
     
+    // MARK: - Functions
     func configure(friend : FriendObject) {
         let bgColorView = UIView()
         bgColorView.backgroundColor = colorClickedCell

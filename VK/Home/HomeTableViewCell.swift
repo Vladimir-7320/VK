@@ -9,11 +9,14 @@
 import UIKit
 
 class HomeTableViewCell: UITableViewCell {
+    // MARK: - IBOutlet
     @IBOutlet weak var photoMenuImage: UIImageView!
     @IBOutlet weak var textLabelCell: UILabel!
     
+    // MARK: - Vars
     private let colorClickedCell = UIColor.init(red: 50/255, green: 50/255, blue: 52/255, alpha: 1)
     
+    // MARK: - Functions
     func configure(home: HomeViewController.MenuItem) {
         let bgColorView = UIView()
         bgColorView.backgroundColor = colorClickedCell

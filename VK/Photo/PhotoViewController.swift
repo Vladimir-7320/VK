@@ -10,7 +10,6 @@ import UIKit
 import RealmSwift
 
 class PhotoViewController: UIViewController {
-    
     // MARK: - IBOutlet
     @IBOutlet var photoCollectionView: UICollectionView!
     
@@ -51,6 +50,7 @@ class PhotoViewController: UIViewController {
     }
 }
 
+// MARK: - DataSource
 extension PhotoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos?.count ?? 0

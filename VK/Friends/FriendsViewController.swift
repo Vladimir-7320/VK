@@ -11,7 +11,6 @@ import Kingfisher
 import RealmSwift
 
 class FriendsViewController: UIViewController {
-    
     // MARK: - IBOutlet
     @IBOutlet var friendsTableView: UITableView!
     
@@ -57,6 +56,7 @@ class FriendsViewController: UIViewController {
     }
 }
 
+    // MARK: - DataSource
 extension FriendsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friends?.count ?? 0

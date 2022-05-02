@@ -10,7 +10,6 @@ import UIKit
 import Kingfisher
 
 class ProfileViewController: UIViewController {
-    
     // MARK: - IBOutlet
     @IBOutlet var profileTableWiew: UITableView!
     
@@ -30,8 +29,8 @@ class ProfileViewController: UIViewController {
     }
 }
 
+    // MARK: - DataSource
 extension ProfileViewController: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }

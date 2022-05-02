@@ -11,7 +11,6 @@ import Kingfisher
 import RealmSwift
 
 class HomeViewController: UIViewController {
-    
     // MARK: - IBOutlet
     @IBOutlet weak private var tableView: UITableView!
     
@@ -72,6 +71,7 @@ class HomeViewController: UIViewController {
     }
 }
 
+    // MARK: - DataSource
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return homeSection.count + 1
@@ -92,6 +92,7 @@ extension HomeViewController: UITableViewDataSource {
     }
 }
 
+    // MARK: - Delegate
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Нажата строка № \(indexPath.row) в секции \(indexPath.section)")
@@ -120,7 +121,7 @@ extension HomeViewController: UITableViewDelegate {
             case "Понравилось":
                 alertController()
             case "Выйти":
-                dismiss(animated: true, completion: nil)
+                performSegue(withIdentifier: "LoginViewController", sender: nil)
             default:
                 break
             }
