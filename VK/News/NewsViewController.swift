@@ -60,66 +60,45 @@ extension NewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "topNewsCellID", for: indexPath) as? TopNewsCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "topNewsCellID", for: indexPath) as! TopNewsCell
             
-            guard let uCell = cell, let uVkNews = vkNews else {
-                return UITableViewCell()
-            }
-            
-            let newsItems = uVkNews.items[indexPath.section]
-            uCell.configure(newsItems: newsItems, uVkNews: uVkNews)
+            let newsItems = vkNews?.items[indexPath.section]
+            cell.configure(newsItems: newsItems!, uVkNews: vkNews!)
 
-            return uCell
+            return cell
         case 1:
- 
-                let cell = tableView.dequeueReusableCell(withIdentifier: "textNewsCellID", for: indexPath) as? TextNewsCell
-                    
-                guard let uCell = cell, let uVkNews = vkNews else {
-                    return UITableViewCell()
-                }
-                    
-                let newsItems = uVkNews.items[indexPath.section]
-                uCell.configure(with: newsItems)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "textNewsCellID", for: indexPath) as! TextNewsCell
                 
-                let newsItemsTextCheck = vkNews?.items[indexPath.section]
-                if newsItemsTextCheck?.text.contains("о") != true {
-                    uCell.isHidden = true
-                    presenceTextNews = true
-                    print(uCell.contentView.isHidden)
-                }
-                
-                return uCell
-        case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "imageNewsCellID", for: indexPath) as? ImageNewsCell
+            let newsItems = vkNews?.items[indexPath.section]
+            cell.configure(with: newsItems!)
             
-            guard let uCell = cell, let uVkNews = vkNews else {
-                return UITableViewCell()
+            let newsItemsTextCheck = vkNews?.items[indexPath.section]
+            if newsItemsTextCheck?.text.contains("о") != true {
+                presenceTextNews = true
             }
             
-            let newsItems = uVkNews.items[indexPath.section]
-            uCell.configure(newsItems: newsItems)
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "imageNewsCellID", for: indexPath) as! ImageNewsCell
+            
+            let newsItems = vkNews?.items[indexPath.section]
+            cell.configure(newsItems: newsItems!)
             
             let newsItemsImageCheck = vkNews?.items[indexPath.section]
             if newsItemsImageCheck?.photoUrl.contains("https") != true {
-                uCell.isHidden = true
                 presenceImageNews = true
-                print(uCell.contentView.isHidden)
             }
             
-            return uCell
+            return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "bottomNewsCellID", for: indexPath) as? BottomNewsCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "bottomNewsCellID", for: indexPath) as! BottomNewsCell
             
-            guard let uCell = cell, let uVkNews = vkNews else {
-                return UITableViewCell()
-            }
-            
-            let newsItems = uVkNews.items[indexPath.section]
-            uCell.configure(with: newsItems)
+            let newsItems = vkNews?.items[indexPath.section]
+            cell.configure(with: newsItems!)
             presenceTextNews = false
             presenceImageNews = false
             
-            return uCell
+            return cell
         }
     }
 }
