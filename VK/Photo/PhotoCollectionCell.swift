@@ -10,8 +10,10 @@ import UIKit
 import Kingfisher
 
 class PhotoCollectionCell: UICollectionViewCell {
+    // MARK: - IBOutlet
     @IBOutlet var photoImageView: UIImageView!
     
+    // MARK: - Functions
     func configure(photo: PhotoObject) {
         photoImageView.kf.setImage(with: URL(string: photo.photo_604))
     }

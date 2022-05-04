@@ -9,7 +9,6 @@
 import UIKit
 
 class FriendsPhotoCollectionViewCell: UICollectionViewCell {
+    // MARK: - IBOutlet
     @IBOutlet weak var friendsPhoto: UIImageView!
-    
-
 }

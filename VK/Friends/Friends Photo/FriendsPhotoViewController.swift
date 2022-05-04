@@ -9,7 +9,6 @@
 import UIKit
 
 class FriendsPhotoViewController: UIViewController {
-    
     // MARK: - IBOutlet
     @IBOutlet weak var friendsPhotoCollectionView: UICollectionView!
     
@@ -35,6 +34,7 @@ class FriendsPhotoViewController: UIViewController {
     }
 }
 
+    // MARK: - DataSource
 extension FriendsPhotoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrayvk.count

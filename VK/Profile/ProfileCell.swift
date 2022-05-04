@@ -9,6 +9,7 @@
 import UIKit
 
 class ProfileCell: UITableViewCell {
+    // MARK: - IBOutlet
     @IBOutlet weak var profileAvatarImageView: UIImageView!
     @IBOutlet var profileNameTextLabel: UILabel!
     @IBOutlet var profileOnlineTextLabel: UILabel!
@@ -16,6 +17,7 @@ class ProfileCell: UITableViewCell {
     @IBOutlet var profileCityTextLabel: UILabel!
     @IBOutlet var profileSexTextLabel: UILabel!
     
+    // MARK: - Functions
     func configure() {
         let profile = Singleton.instance.profileGU
         profileAvatarImageView.kf.setImage(with: URL(string: profile.photo_100))

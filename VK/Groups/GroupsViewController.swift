@@ -11,7 +11,6 @@ import Kingfisher
 import RealmSwift
 
 class GroupsViewController: UIViewController {
-    
     // MARK: - IBOutlet
     @IBOutlet weak var searchGroups: UISearchBar!
     @IBOutlet var groupsTableView: UITableView!
@@ -62,6 +61,7 @@ class GroupsViewController: UIViewController {
      }
 }
 
+// MARK: - DataSource
 extension GroupsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return groups?.count ?? 0

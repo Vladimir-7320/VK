@@ -9,12 +9,15 @@
 import UIKit
 
 class GroupsCell: UITableViewCell {
+    // MARK: - IBOutlet
     @IBOutlet var groupsImageView: UIImageView!
     @IBOutlet var groupsTextLabel: UILabel!
     @IBOutlet var groupsValueTextLabel: UILabel!
     
+    // MARK: - IBOutlet
     private let colorClickedCell = UIColor.init(red: 50/255, green: 50/255, blue: 52/255, alpha: 1)
     
+    // MARK: - Functions
     func configure(group: GroupObject) {
         let bgColorView = UIView()
         bgColorView.backgroundColor = colorClickedCell

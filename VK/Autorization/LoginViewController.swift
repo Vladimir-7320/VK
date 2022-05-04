@@ -9,7 +9,6 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-    
     // MARK: - IBOutlet
     @IBOutlet weak private var vkLogo: UIImageView!
     @IBOutlet weak private var loginButtonToRegister: UIButton! {

@@ -9,11 +9,14 @@
 import UIKit
 
 class ProfileTableViewCell: UITableViewCell {
+    // MARK: - IBOutlet
     @IBOutlet weak private var avatarPhotoImage: UIImageView!
     @IBOutlet private var nameTextLabel: UILabel!
     
+    // MARK: - Vars
     private let colorClickedCell = UIColor.init(red: 55/255, green: 55/255, blue: 57/255, alpha: 1)
     
+    // MARK: - Functions
     func configure() {
         let profile = Singleton.instance.profileGU
         nameTextLabel.text = profile.first_name + " " + profile.last_name
