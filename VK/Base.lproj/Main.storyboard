@@ -582,10 +582,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textNewsCellID" id="PPM-Hf-3AJ" customClass="TextNewsCell" customModule="VK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="104.5" width="375" height="41"/>
+                                        <rect key="frame" x="0.0" y="104.5" width="375" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PPM-Hf-3AJ" id="E7p-rJ-enK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="41"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZT-4l-ejF">
@@ -598,7 +598,7 @@
                                             <constraints>
                                                 <constraint firstItem="pZT-4l-ejF" firstAttribute="top" secondItem="E7p-rJ-enK" secondAttribute="top" constant="10" id="4ey-JT-fTZ"/>
                                                 <constraint firstItem="pZT-4l-ejF" firstAttribute="leading" secondItem="E7p-rJ-enK" secondAttribute="leading" constant="15" id="a5E-qg-Nae"/>
-                                                <constraint firstAttribute="bottom" secondItem="pZT-4l-ejF" secondAttribute="bottom" constant="10" id="c56-Lj-qYR"/>
+                                                <constraint firstAttribute="bottom" secondItem="pZT-4l-ejF" secondAttribute="bottom" constant="15" id="c56-Lj-qYR"/>
                                                 <constraint firstAttribute="trailing" secondItem="pZT-4l-ejF" secondAttribute="trailing" constant="15" id="x6n-Or-wrP"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -608,7 +608,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageNewsCellID" rowHeight="250" id="agd-z6-Q8D" customClass="ImageNewsCell" customModule="VK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="145.5" width="375" height="250"/>
+                                        <rect key="frame" x="0.0" y="150.5" width="375" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="agd-z6-Q8D" id="po8-Rk-YxB">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
@@ -634,7 +634,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bottomNewsCellID" rowHeight="54" id="P4G-Am-q4N" customClass="BottomNewsCell" customModule="VK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="395.5" width="375" height="54"/>
+                                        <rect key="frame" x="0.0" y="400.5" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P4G-Am-q4N" id="V33-Tk-vuR">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>

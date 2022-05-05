@@ -247,7 +247,6 @@ extension VKService: WKNavigationDelegate {
         ]
         
         AF.request(baseUrl+path, method: .get, parameters: params).responseJSON { responds in
-            //print(responds.value as Any)
             guard let data = responds.data else { return }
             
             do {
@@ -289,7 +288,7 @@ extension VKService: WKNavigationDelegate {
                 
                 var photosArray = [PhotoObject]()
                 
-                for item in dataPhotos.photos {
+                for item in dataPhotos.photos.reversed() {
                    let photo = PhotoObject(json: item)
                    photosArray.append(photo)
                 }
