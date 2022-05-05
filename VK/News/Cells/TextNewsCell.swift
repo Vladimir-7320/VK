@@ -15,6 +15,5 @@ class TextNewsCell: UITableViewCell {
     // MARK: - Functions
     func configure(with news: NewsObjectItems) {
         textLable.text = news.text
-        self.separatorInset = UIEdgeInsets(top: 0, left: 1000, bottom: 0, right: 0)
     }
 }
